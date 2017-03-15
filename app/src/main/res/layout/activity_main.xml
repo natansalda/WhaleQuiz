@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="pl.nataliana.whalequiz.MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        style="@style/whale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/w1" />
+
+    <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/activity_main"
-        android:orientation="vertical"
-        tools:context="pl.nataliana.whalequiz.MainActivity">
-
-        <ImageView
-            android:id="@+id/imageView"
-            style="@style/whale"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/w1"
-            android:adjustViewBounds = "true"
-            />
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/question"
@@ -26,40 +30,34 @@
             android:layout_weight="1"
             android:padding="10dp"
             android:text="Question"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/trueRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="clickTrue"
+            android:text="True"
+            android:textSize="22sp" />
 
-            <RadioButton
-                android:id="@+id/trueRadio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:onClick="clickTrue"
-                android:text="True"
-                android:textSize="30sp" />
+        <RadioButton
+            android:id="@+id/falseRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="clickFalse"
+            android:text="False"
+            android:textSize="22sp" />
 
-            <RadioButton
-                android:id="@+id/falseRadio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:onClick="clickFalse"
-                android:text="False"
-                android:textSize="30sp" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="next"
+            android:text="Next question" />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:onClick="next"
-                android:text="Next question" />
+    </RadioGroup>
 
-        </RadioGroup>
-
-    </LinearLayout>
+</LinearLayout>

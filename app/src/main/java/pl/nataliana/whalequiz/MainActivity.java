@@ -11,7 +11,10 @@ import android.widget.TextView;
 import java.util.HashMap;
 import java.util.Map;
 
+//This is an app for Whale Quiz - after answering all questions you will know how much do you know about whales.
 public class MainActivity extends AppCompatActivity {
+
+    //Here are he questions
     private String[] whaleQuestions = new String[]{
             "1. Baleen whales are in general faster and smaller than toothed whales",
             "2. All baleen whales have two blowholes, whilst toothed whales only have one",
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             "10.  Dolphins breathe through a nostril, called a blowhole, located right on top of their heads"
     };
 
+    //Here are the answers
     private Boolean[] whaleAnswers = new Boolean[]{
             false,
             true,
@@ -37,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             true,
             true
     };
+
 
     private int score = 0;
     private int actualQuestion = -1;
@@ -71,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
         pictureMap.put("w8", R.drawable.w8);
         pictureMap.put("w9", R.drawable.w9);
         pictureMap.put("w10", R.drawable.w10);
+        pictureMap.put("seahorse", R.drawable.seahorse);
+        pictureMap.put("seal", R.drawable.seal);
+        pictureMap.put("dolphin", R.drawable.dolphin);
+        pictureMap.put("killerwhale", R.drawable.killerwhale);
+        pictureMap.put("whale", R.drawable.whale);
     }
 
     private void nextQuestion() {
@@ -84,7 +94,12 @@ public class MainActivity extends AppCompatActivity {
     public void clickTrue(View view) {
         if (whaleAnswers[actualQuestion] == true) {
             score++;
-        }
+        };
+
+        /*
+       
+        Boolean trueRadio
+        */
     }
 
     public void clickFalse(View view) {
@@ -101,39 +116,33 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void displayMessage(String score) {
-        TextView scoreView = (TextView) findViewById(R.id.question);
-        scoreView.setText(String.valueOf(score));
+    private void showQuestion(String message) {
+        TextView question = (TextView) findViewById(R.id.question);
+        question.setText(message);
     }
 
     public void showScore() {
         falseRadio.setVisibility(View.INVISIBLE);
         trueRadio.setVisibility(View.INVISIBLE);
         nextQuestion.setVisibility(View.INVISIBLE);
-        String messageString = "Your score is " + String.valueOf(score);
-        displayMessage(messageString);
-
+        String message = "Your score is " + String.valueOf(score);
         if (score <= 2) {
-            messageString += "\nYou are a sea horse. Learn more and you will be a bigger fish one day!";
-            displayMessage(messageString);
+            message += "\nYou are a sea horse. Learn more and you will be a bigger fish one day!";
+            whalePictureView.setImageResource(pictureMap.get("seahorse"));
         } else if (score <= 4) {
-            messageString += "\nYou are a seal. Pretty sweet but not very powerful yet.";
-            displayMessage(messageString);
+            message += "\nYou are a seal. Pretty sweet but not very powerful yet.";
+            whalePictureView.setImageResource(pictureMap.get("seal"));
         } else if (score <= 6) {
-            messageString += "\nYou are a dolphin. I can tell you are an intelligent creature! Keep going this way!";
-            displayMessage(messageString);
+            message += "\nYou are a dolphin. I can tell you are an intelligent creature! Keep going this way!";
+            whalePictureView.setImageResource(pictureMap.get("dolphin"));
         } else if (score <= 8) {
-            messageString += "\nYou are a killer whale. You are on the good track to become the ocean king!";
-            displayMessage(messageString);
+            message += "\nYou are a killer whale. You are on the good track to become the ocean king!";
+            whalePictureView.setImageResource(pictureMap.get("killerwhale"));
         } else if (score <= 10) {
-            messageString += "\nYou are a whale. You know everything, everybody respects you, there is nothing in the world you couldn't achieve!";
-            displayMessage(messageString);
+            message += "\nCongratulation! You are a whale. You know everything, everybody respects you, there is nothing in the world you couldn't achieve!";
+            whalePictureView.setImageResource(pictureMap.get("whale"));
         }
-    }
-
-    private void showQuestion(String message) {
-        TextView question = (TextView) findViewById(R.id.question);
-        question.setText(message);
+        showQuestion(message);
     }
 
 }

@@ -1,5 +1,6 @@
 package pl.nataliana.whalequiz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -134,7 +135,9 @@ public class MainActivity extends AppCompatActivity {
         falseRadio.setVisibility(View.INVISIBLE);
         trueRadio.setVisibility(View.INVISIBLE);
         nextQuestion.setVisibility(View.INVISIBLE);
-        String message = "Your score is " + String.valueOf(score);
+        Intent intent = getIntent();
+        String name = intent.getExtras().getString("name");
+        String message = "Congratulations " + name + ". \nYour score is " + String.valueOf(score);
         if (score <= 2) {
             message += "\nYou are a sea horse. Learn more and you will be a bigger fish one day!";
             whalePictureView.setImageResource(pictureMap.get("seahorse"));

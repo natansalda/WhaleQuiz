@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             "5. Whales can't see underwater - they only can use echolocation to know where they are",
             "6. Whales don't have a sense of smell",
             "7. Dolphins get all the water they need directly from the food they eat",
-            "8. Dolphins, just like humans, have breathing reflex, thans to which they can still breath while sleeping",
+            "8. Dolphins, just like humans, have breathing reflex, thanks to which they can still breath while sleeping",
             "9. Whales are born with a small amount of hair, which they loose when they get older",
             "10.  Dolphins breathe through a nostril, called a blowhole, located right on top of their heads"
     };
@@ -94,19 +94,28 @@ public class MainActivity extends AppCompatActivity {
     public void clickTrue(View view) {
         if (whaleAnswers[actualQuestion] == true) {
             score++;
-        };
-
-        /*
-       
-        Boolean trueRadio
-        */
+        }
+        ;
+        RadioButton trueButton = (RadioButton) findViewById(R.id.trueRadio);
+        /*Boolean trueChecked = trueButton.isChecked();
+        if (trueChecked == true) {
+            Toast.makeText(this, "You can only click every answer once", Toast.LENGTH_SHORT).show();
+        }*/
     }
 
     public void clickFalse(View view) {
         if (whaleAnswers[actualQuestion] == false) {
             score++;
         }
+        ;
+        RadioButton falseButton = (RadioButton) findViewById(R.id.falseRadio);
+        /*Boolean falseChecked = falseButton.isChecked();
+        if (falseChecked == true) {
+            Toast.makeText(this, "You can only click every answer once", Toast.LENGTH_SHORT).show();
+        }
+        */
     }
+
 
     public void next(View view) {
         if (actualQuestion < 9) {

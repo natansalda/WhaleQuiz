@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
             message += "\nYou are a killer whale. You are on the good track to become the ocean king!";
             whalePictureView.setImageResource(pictureMap.get("killerwhale"));
         } else if (score <= 10) {
-            message += "\nCongratulation! You are a whale. You know everything, everybody respects you, there is nothing in the world you couldn't achieve!";
+            message += "\nYou are a whale. You know everything, everybody respects you, there is nothing in the world you couldn't achieve!";
             whalePictureView.setImageResource(pictureMap.get("whale"));
         }
         showQuestion(message);

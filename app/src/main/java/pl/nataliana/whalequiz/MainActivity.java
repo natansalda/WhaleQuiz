@@ -15,7 +15,7 @@ import java.util.Map;
 //This is an app for Whale Quiz - after answering all questions you will know how much do you know about whales.
 public class MainActivity extends AppCompatActivity {
 
-    //Here are he questions
+    //Here are the questions
     private String[] whaleQuestions = new String[]{
             "1. Baleen whales are in general faster and smaller than toothed whales",
             "2. All baleen whales have two blowholes, whilst toothed whales only have one",
